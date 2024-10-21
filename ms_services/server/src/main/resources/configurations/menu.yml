@@ -1,0 +1,15 @@
+server:
+  port: 8050
+spring:
+  datasource:
+    url: ${DATASOURCE_URL:jdbc:h2:mem:products}
+    username: ${DATASOURCE_USERNAME:products}
+    password: ${DATASOURCE_PASSWORD:products}
+    driver-class-name: org.h2.Driver
+  h2:
+    console:
+      enabled: true
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: create-drop
