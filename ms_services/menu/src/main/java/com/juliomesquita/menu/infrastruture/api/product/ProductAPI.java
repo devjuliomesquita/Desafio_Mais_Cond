@@ -26,9 +26,7 @@ public interface ProductAPI {
                             @Content(mediaType = "application/json", schema = @Schema(implementation = ListProductsResponse.class))}),
                     @ApiResponse(responseCode = "400", description = "Bad Request."),
                     @ApiResponse(responseCode = "500", description = "Internal server error.")})
-    @GetMapping(
-            consumes = MediaType.APPLICATION_JSON_VALUE,
-            produces = MediaType.APPLICATION_JSON_VALUE)
+    @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
     ResponseEntity<Pagination<ListProductsResponse>> ListProducts(
             @RequestParam(name = "search", required = false, defaultValue = "") final String search,
             @RequestParam(name = "currentPage", required = false, defaultValue = "0") final int currentPage,

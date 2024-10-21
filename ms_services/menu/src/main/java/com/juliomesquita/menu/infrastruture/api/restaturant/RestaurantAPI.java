@@ -30,7 +30,6 @@ public interface RestaurantAPI {
                     @ApiResponse(responseCode = "400", description = "Bad Request."),
                     @ApiResponse(responseCode = "500", description = "Internal server error.")})
     @GetMapping(
-            consumes = MediaType.APPLICATION_JSON_VALUE,
             produces = MediaType.APPLICATION_JSON_VALUE)
     ResponseEntity<List<ListTableResponse>> ListTablesRestaurant();
 
@@ -47,7 +46,6 @@ public interface RestaurantAPI {
                     @ApiResponse(responseCode = "500", description = "Internal server error.")})
     @GetMapping(
             value = "/{id}",
-            consumes = MediaType.APPLICATION_JSON_VALUE,
             produces = MediaType.APPLICATION_JSON_VALUE)
     ResponseEntity<TableResponse> getTableById(@PathVariable(name = "id") String id);
 
