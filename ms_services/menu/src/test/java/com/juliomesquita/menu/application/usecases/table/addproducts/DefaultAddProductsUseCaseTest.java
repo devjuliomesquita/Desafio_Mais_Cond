@@ -83,6 +83,7 @@ class DefaultAddProductsUseCaseTest {
                 assertThrows(RuntimeException.class, () -> this.useCase.execute(aCommand));
         assertEquals(expectedMessageError, exception.getMessage());
         verify(this.tableRestaurantGateway, times(1)).findById(any());
+        verify(this.tableRestaurantGateway, times(0)).save(any());
     }
 
     @Test
@@ -100,6 +101,7 @@ class DefaultAddProductsUseCaseTest {
                 assertThrows(IllegalStateException.class, () -> this.useCase.execute(aCommand));
         assertEquals(expectedMessageError, exception.getMessage());
         verify(this.tableRestaurantGateway, times(1)).findById(any());
+        verify(this.tableRestaurantGateway, times(0)).save(any());
     }
 
 }
