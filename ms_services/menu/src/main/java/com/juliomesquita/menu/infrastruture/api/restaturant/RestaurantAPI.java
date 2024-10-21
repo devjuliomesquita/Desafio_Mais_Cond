@@ -20,7 +20,7 @@ import java.util.List;
 @Tag(name = "Restaurant")
 public interface RestaurantAPI {
     @Operation(
-            operationId = "ListTablesRestaurant",
+            operationId = "listTablesRestaurant",
             summary = "Lista todas as mesas e suas disponibilidades.",
             description = "Endpoint lista todas as mesas do restaturante e suas disponibilidades.",
             tags = {"Restaurant"},
@@ -31,7 +31,7 @@ public interface RestaurantAPI {
                     @ApiResponse(responseCode = "500", description = "Internal server error.")})
     @GetMapping(
             produces = MediaType.APPLICATION_JSON_VALUE)
-    ResponseEntity<List<ListTableResponse>> ListTablesRestaurant();
+    ResponseEntity<List<ListTableResponse>> listTablesRestaurant();
 
 
     @Operation(

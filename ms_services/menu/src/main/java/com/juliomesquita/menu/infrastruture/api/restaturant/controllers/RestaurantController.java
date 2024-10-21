@@ -33,7 +33,7 @@ public class RestaurantController implements RestaurantAPI {
     }
 
     @Override
-    public ResponseEntity<List<ListTableResponse>> ListTablesRestaurant() {
+    public ResponseEntity<List<ListTableResponse>> listTablesRestaurant() {
         final List<ListTableResponse> tableResponseList = this.listTablesUseCase
                 .execute()
                 .stream()
