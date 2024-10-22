@@ -13,3 +13,6 @@ spring:
     show-sql: true
     hibernate:
       ddl-auto: create-drop
+application:
+  config:
+    order-url: http://localhost:8060/order
