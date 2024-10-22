@@ -1,0 +1,15 @@
+server:
+  port: 8070
+spring:
+  datasource:
+    url: ${DATASOURCE_URL:jdbc:h2:mem:preparation}
+    username: ${DATASOURCE_USERNAME:preparation}
+    password: ${DATASOURCE_PASSWORD:preparation}
+    driver-class-name: org.h2.Driver
+  h2:
+    console:
+      enabled: true
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: create-drop

@@ -8,6 +8,7 @@
         <option value="$PROJECT_DIR$/ms_services/discovery/pom.xml" />
         <option value="$PROJECT_DIR$/ms_services/menu/pom.xml" />
         <option value="$PROJECT_DIR$/ms_services/order/pom.xml" />
+        <option value="$PROJECT_DIR$/ms_services/preparation/pom.xml" />
       </list>
     </option>
   </component>
