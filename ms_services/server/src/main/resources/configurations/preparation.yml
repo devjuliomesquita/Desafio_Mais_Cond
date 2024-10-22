@@ -27,8 +27,8 @@ spring:
       bootstrap-servers: localhost:9092
       key-serializer: org.apache.kafka.common.serialization.StringSerializer
       value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
-#      properties:
-#        spring.json.type.mapping: updateOrderMessage:com.juliomesquita.preparation.application.usecase.commom.UpdateOrderMessage
+      properties:
+        spring.json.type.mapping: updateOrderMessage:com.juliomesquita.preparation.application.usecase.commom.UpdateOrderMessage
 application:
   config:
     order-url: http://localhost:8060/order

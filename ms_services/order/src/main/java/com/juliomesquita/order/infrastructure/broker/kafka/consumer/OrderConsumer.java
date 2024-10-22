@@ -28,9 +28,9 @@ public class OrderConsumer {
         this.createOrderUseCase.execute(new CreateOrderCommand(anEvent.tableId(), anEvent.products()));
     }
 
-//    @KafkaListener(topics = "preparation-order-topic")
-//    public void execute2(final UpdateOrderMessage anEvent){
-//        System.out.println("chegou no kafka listener :: %s".formatted(anEvent));
-//        this.changeStatusOrderUseCase.execute(new ChangeStatusCommand(anEvent.orderId(), anEvent.status()));
-//    }
+    @KafkaListener(topics = "preparation-order-topic")
+    public void execute2(final UpdateOrderMessage anEvent){
+        System.out.println("chegou no kafka listener :: %s".formatted(anEvent));
+        this.changeStatusOrderUseCase.execute(new ChangeStatusCommand(anEvent.orderId(), anEvent.status()));
+    }
 }
