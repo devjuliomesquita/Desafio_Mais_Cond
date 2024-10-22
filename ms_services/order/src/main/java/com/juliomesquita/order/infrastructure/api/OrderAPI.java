@@ -21,7 +21,7 @@ public interface OrderAPI {
             operationId = "listOrders",
             summary = "Lista todos os pedidos da criados.",
             description = "Endpoint lista todos os pedidos criados.",
-            tags = {"Restaurant"},
+            tags = {"Order"},
             responses = {
                     @ApiResponse(responseCode = "200", description = "Successful operation", content = {
                             @Content(mediaType = "application/json", schema = @Schema(implementation = ListOrdersResponse.class))}),
@@ -36,7 +36,7 @@ public interface OrderAPI {
             operationId = "getOrderById",
             summary = "Buscar um pedido pelo id.",
             description = "Endpoint para busca um pedido pelo id e retornar suas caracteríticas.",
-            tags = {"Restaurant"},
+            tags = {"Order"},
             responses = {
                     @ApiResponse(responseCode = "200", description = "Successful operation", content = {
                             @Content(mediaType = "application/json", schema = @Schema(implementation = OrderResponse.class))}),
