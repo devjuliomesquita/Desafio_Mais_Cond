@@ -1,12 +1,12 @@
-package com.juliomesquita.preparation.infrastructure.services.order.models;
+package com.juliomesquita.preparation.domain.dto;
 
 import java.time.Instant;
 import java.util.List;
 
-public record OrderResponse(
+public record OrderDTO(
         String id,
         String tableId,
-        List<ProductsModel> products,
+        List<ProductDTO> products,
         Instant createdAt,
         Instant updatedAt,
         String status

@@ -10,6 +10,16 @@ public class Comanda {
     private Instant createdAt;
     private Instant updatedAt;
 
+    public static Comanda with(
+            final String id,
+            final String orderId,
+            final boolean closed,
+            final Instant createdAt,
+            final Instant updatedAt
+    ) {
+        return new Comanda(id, orderId, closed, createdAt, updatedAt);
+    }
+
     public static Comanda newComanda(final String anOrderId) {
         validate(anOrderId);
         final String anId = UUID.randomUUID().toString();
@@ -17,7 +27,7 @@ public class Comanda {
         return new Comanda(anId, anOrderId, false, now, now);
     }
 
-    public Comanda closeComanda(){
+    public Comanda closeComanda() {
         this.closed = true;
         this.updatedAt = Instant.now();
         return this;
