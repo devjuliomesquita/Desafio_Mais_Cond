@@ -25,7 +25,7 @@ public class DeliveryConsumer {
 
     private void sleep(){
         try {
-            Thread.sleep(5000);
+            Thread.sleep(2000);
         } catch (InterruptedException e) {
             Thread.currentThread().interrupt();
             System.err.println("Erro ao aguardar: " + e.getMessage());
