@@ -26,8 +26,8 @@ spring:
       value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
       properties:
         spring.json.trusted.packages: '*'
-        spring.json.type.mapping: createOrderMessage:com.juliomesquita.order.infrastructure.broker.kafka.consumer.CreateOrderMessage,updateOrderMessage:com.juliomesquita.order.infrastructure.broker.kafka.consumer.UpdateOrderMessage
-#        ,updateOrderMessage:com.juliomesquita.order.infrastructure.broker.kafka.consumer.UpdateOrderMessage
+        spring.json.type.mapping: createOrderMessage:com.juliomesquita.order.infrastructure.broker.kafka.consumer.CreateOrderMessage,updateOrderMessage:com.juliomesquita.order.infrastructure.broker.kafka.consumer.UpdateOrderMessage,closeOrderMessage:com.juliomesquita.order.infrastructure.broker.kafka.consumer.CloseOrderMessage
+
     producer:
       bootstrap-servers: localhost:9092
       key-serializer: org.apache.kafka.common.serialization.StringSerializer

@@ -29,7 +29,13 @@ public class OrderConsumer {
     }
 
     @KafkaListener(topics = "preparation-order-topic")
-    public void execute2(final UpdateOrderMessage anEvent){
+    public void execute(final UpdateOrderMessage anEvent){
+        System.out.println("chegou no kafka listener :: %s".formatted(anEvent));
+        this.changeStatusOrderUseCase.execute(new ChangeStatusCommand(anEvent.orderId(), anEvent.status()));
+    }
+
+    @KafkaListener(topics = "delivery-topic")
+    public void execute(final CloseOrderMessage anEvent){
         System.out.println("chegou no kafka listener :: %s".formatted(anEvent));
         this.changeStatusOrderUseCase.execute(new ChangeStatusCommand(anEvent.orderId(), anEvent.status()));
     }
