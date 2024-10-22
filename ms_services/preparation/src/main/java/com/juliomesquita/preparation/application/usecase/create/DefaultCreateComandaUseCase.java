@@ -10,6 +10,7 @@ public class DefaultCreateComandaUseCase extends CreateComandaUseCase {
     private final ComandaGateway comandaGateway;
     private final OrderService orderService;
 
+
     public DefaultCreateComandaUseCase(
             final ComandaGateway comandaGateway,
             final OrderService orderService
