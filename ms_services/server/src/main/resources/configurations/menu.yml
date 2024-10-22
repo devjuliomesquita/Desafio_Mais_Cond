@@ -13,3 +13,10 @@ spring:
     show-sql: true
     hibernate:
       ddl-auto: create-drop
+  kafka:
+    producer:
+      bootstrap-servers: localhost:9092
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
+      properties:
+        spring.json.type.mapping: data:com.juliomesquita.menu.application.usecases.table.addproducts.CreateOrderMessage
