@@ -1,6 +1,5 @@
 package com.juliomesquita.preparation.infrastructure.broker.kafka.producer;
 
-import com.juliomesquita.order.application.usecase.order.create.CreateComandaMessage;
 import com.juliomesquita.preparation.application.usecase.close.CreateDeliveryMessage;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.kafka.support.KafkaHeaders;
