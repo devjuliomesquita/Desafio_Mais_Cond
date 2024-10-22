@@ -1,5 +1,5 @@
 spring:
   application:
-    name:
+    name: preparation
   config:
     import: optional:configserver:http://localhost:8888
