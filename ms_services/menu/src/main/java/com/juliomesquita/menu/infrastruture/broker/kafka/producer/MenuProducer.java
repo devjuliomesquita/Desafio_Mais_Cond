@@ -18,6 +18,7 @@ public class MenuProducer {
     }
 
     public void send(CreateOrderMessage data) {
+        System.out.println(data);
         final Message<CreateOrderMessage> message = MessageBuilder
                 .withPayload(data)
                 .setHeader(KafkaHeaders.TOPIC, "menu-topic")

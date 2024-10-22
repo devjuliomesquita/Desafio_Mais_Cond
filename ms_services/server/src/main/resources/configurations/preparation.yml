@@ -13,6 +13,22 @@ spring:
     show-sql: true
     hibernate:
       ddl-auto: create-drop
+  kafka:
+    consumer:
+      bootstrap-servers: localhost:9092
+      group-id: preparationGroup
+      auto-offset-reset: earliest
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
+      properties:
+        spring.json.trusted.packages: '*'
+        spring.json.type.mapping: createComandaMessage:com.juliomesquita.preparation.infrastructure.broker.kafka.consumer.CreateComandaMessage
+    producer:
+      bootstrap-servers: localhost:9092
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
+      properties:
+        spring.json.type.mapping: updateOrderMessage:com.juliomesquita.preparation.application.usecase.commom.UpdateOrderMessage
 application:
   config:
     order-url: http://localhost:8060/order

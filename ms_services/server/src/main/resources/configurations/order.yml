@@ -1,5 +1,9 @@
 server:
   port: 8060
+#logging:
+#  level:
+#    org.springframework.kafka: DEBUG
+#    org.apache.kafka: DEBUG
 spring:
   datasource:
     url: ${DATASOURCE_URL:jdbc:h2:mem:order}
@@ -22,8 +26,11 @@ spring:
       value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
       properties:
         spring.json.trusted.packages: '*'
-        spring.json.type.mapping: data:com.juliomesquita.order.infrastructure.broker.kafka.consumer.CreateOrderMessage
+        spring.json.type.mapping: createOrderMessage:com.juliomesquita.order.infrastructure.broker.kafka.consumer.CreateOrderMessage
+#        ,updateOrderMessage:com.juliomesquita.order.infrastructure.broker.kafka.consumer.UpdateOrderMessage
     producer:
       bootstrap-servers: localhost:9092
       key-serializer: org.apache.kafka.common.serialization.StringSerializer
       value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
+#      properties:
+#        spring.json.type.mapping: createComandaMessage:com.juliomesquita.order.application.usecase.order.create.CreateComandaMessage

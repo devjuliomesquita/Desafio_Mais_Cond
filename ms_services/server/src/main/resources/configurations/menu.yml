@@ -19,4 +19,4 @@ spring:
       key-serializer: org.apache.kafka.common.serialization.StringSerializer
       value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
       properties:
-        spring.json.type.mapping: data:com.juliomesquita.menu.application.usecases.table.addproducts.CreateOrderMessage
+        spring.json.type.mapping: createOrderMessage:com.juliomesquita.menu.application.usecases.table.addproducts.CreateOrderMessage
