@@ -24,6 +24,8 @@ public class DefaultGetComandaByIdUseCase extends GetComandaByIdUseCase {
         final Comanda aComanda = this.comandaGateway.getById(anId)
                 .orElseThrow(() -> new RuntimeException("'Comanda' with id :: %s not found".formatted(anId)));
         final OrderDTO anOrder = this.orderService.findOrderById(aComanda.getOrderId());
+        System.out.println(aComanda);
+        System.out.println(anOrder);
         return GetComandaByIdOutput.from(aComanda, anOrder);
     }
 }

@@ -18,6 +18,7 @@ public class OrderProducer {
     }
 
     public void send(CreateComandaMessage data) {
+        System.out.println(data);
         final Message<CreateComandaMessage> message = MessageBuilder
                 .withPayload(data)
                 .setHeader(KafkaHeaders.TOPIC, "order-topic")

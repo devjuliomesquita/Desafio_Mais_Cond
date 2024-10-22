@@ -58,6 +58,6 @@ public interface ComandaAPI {
                     @ApiResponse(responseCode = "400", description = "Bad Request."),
                     @ApiResponse(responseCode = "500", description = "Internal server error.")})
     @GetMapping(
-            value = "/{id}")
+            value = "/{id}/close")
     ResponseEntity<?> closeComandaById(@PathVariable(name = "id") String id);
 }
