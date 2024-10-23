@@ -1,5 +1,6 @@
 package com.juliomesquita.menu.application.usecases.table.addproducts;
 
+import com.juliomesquita.menu.domain.commom.SentEventService;
 import com.juliomesquita.menu.domain.table.TableRestaurant;
 import com.juliomesquita.menu.domain.table.TableRestaurantGateway;
 import org.junit.jupiter.api.BeforeEach;
@@ -26,17 +27,14 @@ class DefaultAddProductsUseCaseTest {
     private DefaultAddProductsUseCase useCase;
     @Mock
     private TableRestaurantGateway tableRestaurantGateway;
+    @Mock
+    private SentEventService<CreateOrderMessage> sentEventService;
 
     @BeforeEach
     void cleanUp() {
         Mockito.reset(tableRestaurantGateway);
     }
 
-    /*
-     * 1. Caso feliz
-     * 2. Caso Enviando um Id de mesa errado
-     * 3. Gateway erro
-     * */
     @Test
     void givenAValidParams_whenCallsAddProducts_thenReturnTableId() {
         //given
@@ -50,6 +48,7 @@ class DefaultAddProductsUseCaseTest {
 
         //when
         when(this.tableRestaurantGateway.findById(any())).thenReturn(Optional.of(aTable));
+        doNothing().when(this.sentEventService).sentEvent(any());
         when(this.tableRestaurantGateway.save(any())).thenReturn(expectedTableId);
         final String response = this.useCase.execute(aCommand);
 
@@ -58,6 +57,8 @@ class DefaultAddProductsUseCaseTest {
             assertNotNull(response);
             assertEquals(expectedTableId, response);
         });
+        verify(this.tableRestaurantGateway, times(1)).findById(any());
+        verify(this.sentEventService, times(1)).sentEvent(any());
         verify(this.tableRestaurantGateway, times(1)).save(argThat(
                 aTableRestaurant -> {
                     return Objects.equals(expectedTableId, aTableRestaurant.getId()) &&
@@ -83,6 +84,7 @@ class DefaultAddProductsUseCaseTest {
                 assertThrows(RuntimeException.class, () -> this.useCase.execute(aCommand));
         assertEquals(expectedMessageError, exception.getMessage());
         verify(this.tableRestaurantGateway, times(1)).findById(any());
+        verify(this.sentEventService, times(0)).sentEvent(any());
         verify(this.tableRestaurantGateway, times(0)).save(any());
     }
 
@@ -101,6 +103,27 @@ class DefaultAddProductsUseCaseTest {
                 assertThrows(IllegalStateException.class, () -> this.useCase.execute(aCommand));
         assertEquals(expectedMessageError, exception.getMessage());
         verify(this.tableRestaurantGateway, times(1)).findById(any());
+        verify(this.sentEventService, times(0)).sentEvent(any());
+        verify(this.tableRestaurantGateway, times(0)).save(any());
+    }
+
+    @Test
+    void givenAValidParamsWithErrorEvent_whenCallsAddProducts_thenAnyException() {
+        //given
+        final String expectedTableId = "1a17b962-fbb4-4024-a3ce-c3fbb65a11fd";
+        final String expectedMessageError = "gatewayError";
+        final TableRestaurant aTable = TableRestaurant.newTable(false);
+        final AddProductsCommand aCommand = new AddProductsCommand(expectedTableId, new HashMap<>());
+
+        //when
+        when(this.tableRestaurantGateway.findById(any())).thenReturn(Optional.of(aTable));
+        doThrow(new IllegalStateException(expectedMessageError)).when(this.sentEventService).sentEvent(any());
+        //then
+        final IllegalStateException exception =
+                assertThrows(IllegalStateException.class, () -> this.useCase.execute(aCommand));
+        assertEquals(expectedMessageError, exception.getMessage());
+        verify(this.tableRestaurantGateway, times(1)).findById(any());
+        verify(this.sentEventService, times(1)).sentEvent(any());
         verify(this.tableRestaurantGateway, times(0)).save(any());
     }
 
