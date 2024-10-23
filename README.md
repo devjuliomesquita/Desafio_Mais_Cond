@@ -68,7 +68,7 @@ até a entrega final dos pedidos. O sistema deve ser escalável e preparado para
 A arquitetura do projeto é composta por 6 microserviços que se comunicam de forma assíncrona via **Kafka** e de forma síncrona via **OpenFeign**. Cada microserviço tem responsabilidades específicas, dividindo o fluxo de um pedido em várias etapas:
 
 <div style="width: 100%; height: 50vh; overflow: hidden; display: flex; justify-content: center; align-items: center;">
-    <img src="https://github.com/devjuliomesquita/arquitetura.png" 
+    <img src="https://github.com/devjuliomesquita/Desafio_Mais_Cond/blob/main/documents/arquitetura.png" 
     alt="Tela 1" style="width: 100%; height: 100%; object-position: top; object-fit: cover;"/>
 </div>
 
