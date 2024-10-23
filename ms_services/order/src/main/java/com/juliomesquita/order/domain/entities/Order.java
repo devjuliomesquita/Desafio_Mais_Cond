@@ -53,6 +53,11 @@ public class Order {
         if (aProducts.size() <= 0) {
             throw new IllegalArgumentException("Quantity of products must be greater than zero");
         }
+        for (String productId : aProducts.keySet()) {
+            if (aProducts.get(productId) <= 0) {
+                throw new IllegalArgumentException("Quantity of product must be greater than zero");
+            }
+        }
     }
 
     private Order(

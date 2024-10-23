@@ -15,7 +15,7 @@ public class DefaultChangeStatusOrderUseCase extends ChangeStatusOrderUseCase {
     @Override
     public void execute(ChangeStatusCommand aCommand) {
         final Order anOrder = this.orderGateway.getById(aCommand.orderId())
-                .orElseThrow(() -> new RuntimeException("'Order' with id :: %s not found".formatted(aCommand)));
+                .orElseThrow(() -> new RuntimeException("'Order' with id :: %s not found".formatted(aCommand.orderId())));
         anOrder.changeStatus(aCommand.status());
         this.orderGateway.save(anOrder);
     }
