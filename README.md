@@ -94,13 +94,14 @@ Este comando subirá um container docker do kafka e do zookeper.
 ### Inicialização dos micro serviços
  - Inicialize primeiramente o server do spring cloud para subir o contexto de configurações;
  - Inicialize o discovery para que suba o eureka e os demais serviços possam se inscrever;
- - Por fim inicialize os demais serviços. A order lógica sugerida é menu, order, preparation e delivery.
+ - Inicialize os demais serviços. A order lógica sugerida é menu, order, preparation e delivery.
+ - Por fim inicialize a o serviço de gateway.
 
 ### Import dooc no postman
  - Import os 3 arquivos que estão na pasta documents/postman em seu aplicativo postman eles já contém a lista de requisições.
 
 ### Acessando o swagger, eureka e H2
-#### Links do swagger | Portas escolhidas aleatoriamente | Apenas para consul ou realizar um novo import de doc
+#### Links do swagger | Portas escolhidas aleatoriamente | Apenas para consulta ou realizar um novo import de doc
  - Menu: http://localhost:8050/swagger-ui/index.html#/
  - Order: http://localhost:8060/swagger-ui/index.html#/
  - Preparation: http://localhost:8070/swagger-ui/index.html#/

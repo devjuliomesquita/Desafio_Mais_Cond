@@ -110,10 +110,13 @@ class DefaultAddProductsUseCaseTest {
     @Test
     void givenAValidParamsWithErrorEvent_whenCallsAddProducts_thenAnyException() {
         //given
-        final String expectedTableId = "1a17b962-fbb4-4024-a3ce-c3fbb65a11fd";
+        final String expectedProductId = "1a17b962-fbb4-4024-a3ce-c3fbb65a11fd";
         final String expectedMessageError = "gatewayError";
         final TableRestaurant aTable = TableRestaurant.newTable(false);
-        final AddProductsCommand aCommand = new AddProductsCommand(expectedTableId, new HashMap<>());
+        final String expectedTableId = aTable.getId();
+        final Map<String, Integer> mapProducts = Map.of(
+                expectedProductId, 2);
+        final AddProductsCommand aCommand = new AddProductsCommand(expectedTableId, mapProducts);
 
         //when
         when(this.tableRestaurantGateway.findById(any())).thenReturn(Optional.of(aTable));
