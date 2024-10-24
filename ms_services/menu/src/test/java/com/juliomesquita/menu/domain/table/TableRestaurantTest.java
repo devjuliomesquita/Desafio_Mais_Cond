@@ -56,7 +56,7 @@ class TableRestaurantTest {
     void givenAnInvalidProductsLessThenZero_whenCallsAddProducts_thenReturnTable() {
         //given
         final boolean expectedReserved = false;
-
+        final String expectedMessageError = "Lista de produtos precisa conter um id e uma quantidade maior que zero.";
         final String expectedProductId = "270a78a4-1467-472f-a4c2-259a69869d57";
         final Map<String, Integer> expectedProducts = Map.of(
                 expectedProductId, -1);
@@ -64,21 +64,17 @@ class TableRestaurantTest {
 
         //when
         final TableRestaurant aTableRestaurant = TableRestaurant.newTable(expectedReserved);
-        aTableRestaurant.addProducts(expectedProducts);
 
         //then
-        assertAll("Verify attributes table", () -> {
-            assertNotNull(aTableRestaurant);
-            assertNotNull(aTableRestaurant.getId());
-            assertEquals(expectedReserved, aTableRestaurant.isReserved());
-            assertEquals(0, aTableRestaurant.getProducts().size());
-        });
+        final IllegalArgumentException exception = assertThrows(IllegalArgumentException.class, () -> aTableRestaurant.addProducts(expectedProducts));
+        assertEquals(expectedMessageError, exception.getMessage());
     }
 
     @Test
-    void givenAnInvalidProductsId_whenCallsAddProducts_thenReturnTable() {
+    void givenAnInvalidProductsId_whenCallsAddProducts_thenReturnException() {
         //given
         final boolean expectedReserved = false;
+        final String expectedMessageError = "Lista de produtos precisa conter um id e uma quantidade maior que zero.";
 
         final String expectedProductId = "";
         final Map<String, Integer> expectedProducts = Map.of(
@@ -87,15 +83,10 @@ class TableRestaurantTest {
 
         //when
         final TableRestaurant aTableRestaurant = TableRestaurant.newTable(expectedReserved);
-        aTableRestaurant.addProducts(expectedProducts);
 
         //then
-        assertAll("Verify attributes table", () -> {
-            assertNotNull(aTableRestaurant);
-            assertNotNull(aTableRestaurant.getId());
-            assertEquals(expectedReserved, aTableRestaurant.isReserved());
-            assertEquals(0, aTableRestaurant.getProducts().size());
-        });
+        final IllegalArgumentException exception = assertThrows(IllegalArgumentException.class, () -> aTableRestaurant.addProducts(expectedProducts));
+        assertEquals(expectedMessageError, exception.getMessage());
     }
 
 }

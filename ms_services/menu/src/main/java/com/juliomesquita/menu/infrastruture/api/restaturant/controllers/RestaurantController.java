@@ -11,6 +11,8 @@ import com.juliomesquita.menu.infrastruture.api.restaturant.models.AddProductsRe
 import com.juliomesquita.menu.infrastruture.api.restaturant.models.ListTableResponse;
 import com.juliomesquita.menu.infrastruture.api.restaturant.models.TableResponse;
 import com.juliomesquita.menu.infrastruture.api.restaturant.presenters.RestaurantPresenter;
+import org.apache.http.protocol.HTTP;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -54,6 +56,7 @@ public class RestaurantController implements RestaurantAPI {
     public ResponseEntity<?> addProducts(final AddProductsRequest input) {
         final AddProductsCommand aCommand = RestaurantPresenter.presenterAddProducts
                 .apply(input);
-        return ResponseEntity.ok(this.addProductsUseCase.execute(aCommand));
+        this.addProductsUseCase.execute(aCommand);
+        return new ResponseEntity<>(HttpStatus.CREATED);
     }
 }

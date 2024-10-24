@@ -55,8 +55,7 @@ public interface RestaurantAPI {
             description = "Endpoint para adicionar um novo produto ou uma lista de novos produtos ao consumo da mesa.",
             tags = {"Restaurant"},
             responses = {
-                    @ApiResponse(responseCode = "200", description = "Successful operation", content = {
-                            @Content(mediaType = "application/json")}),
+                    @ApiResponse(responseCode = "204", description = "Successful operation"),
                     @ApiResponse(responseCode = "400", description = "Bad Request."),
                     @ApiResponse(responseCode = "500", description = "Internal server error.")})
     @PostMapping(

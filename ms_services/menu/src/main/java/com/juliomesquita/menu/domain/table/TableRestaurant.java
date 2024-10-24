@@ -3,6 +3,7 @@ package com.juliomesquita.menu.domain.table;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;
+import java.util.stream.Collectors;
 
 public class TableRestaurant {
     private String id;
@@ -24,15 +25,18 @@ public class TableRestaurant {
     }
 
     public void addProducts(final Map<String, Integer> newProducts) {
-        newProducts.entrySet()
+        final Map<String, Integer> validProducts = newProducts.entrySet()
                 .stream()
                 .filter(product -> product.getValue() > 0)
                 .filter(product -> !product.getKey().isBlank())
-                .forEach(product ->
-                        this.products.put(product.getKey(), product.getValue()));
-        if (!this.products.isEmpty()) {
-            this.reserved = true;
+                .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue));
+
+        if (validProducts.isEmpty()) {
+            throw new IllegalArgumentException("Lista de produtos precisa conter um id e uma quantidade maior que zero.");
         }
+
+        validProducts.forEach((key, value) -> this.products.merge(key, value, Integer::sum));
+        this.reserved = true;
     }
 
     private TableRestaurant(

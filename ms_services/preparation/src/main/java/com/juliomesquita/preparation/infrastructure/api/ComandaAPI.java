@@ -10,6 +10,7 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -57,7 +58,7 @@ public interface ComandaAPI {
                     @ApiResponse(responseCode = "200", description = "Successful operation"),
                     @ApiResponse(responseCode = "400", description = "Bad Request."),
                     @ApiResponse(responseCode = "500", description = "Internal server error.")})
-    @GetMapping(
+    @PatchMapping(
             value = "/{id}/close")
     ResponseEntity<?> closeComandaById(@PathVariable(name = "id") String id);
 }

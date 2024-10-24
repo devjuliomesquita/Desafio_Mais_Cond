@@ -65,7 +65,7 @@ Para fins de documentação de API REST foi utilizado o swagger.
 >
 > Por conta do tipo de projeto, proposta e praticidade foi utilizado o banco H2 em memória com a opção jpa.hibernate.dll-auto: create-drop
 > para criação e deleção do banco automático. Caso fosse utilizado outro banco, como o  Postgres, seria impressindível além do docker para inicialização
-> utilizar ferrementas para o gerenciamento de migrations para Flyway ou o Liquibase.
+> utilizar ferrementas para o gerenciamento de migrations como Flyway ou Liquibase.
  
 ## Guia do usuário
 ### Clonar o projeto
@@ -141,4 +141,4 @@ Este comando subirá um container docker do kafka e do zookeper.
 ---
 Júlio C. Mesquita
 
-###### tags: `Java` `Desing Patterns` `Patterns` `Documentation`
+###### tags: `Java` `Desing Patterns` `Documentation`  `Kafka` `Tests` `Microservice`  `Spring Cloud` `Spring Boot`
