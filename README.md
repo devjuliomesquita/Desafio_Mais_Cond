@@ -41,7 +41,7 @@ até a entrega final dos pedidos. O sistema deve ser escalável e preparado para
 > https://github.com/devjuliomesquita/Desafio_Mais_Cond/blob/main/documents/Enunciado%20para%20Teste%20Pr%C3%A1tico%20-%20Desenvolvedor%20Backend%20Java%20Pleno.pdf
 
 ## Estratégia utilizada no projeto
-A arquitetura do projeto é composta por 6 microserviços que se comunicam de forma assíncrona via **Kafka** e de forma síncrona via **OpenFeign**. Cada microserviço tem responsabilidades específicas, dividindo o fluxo de um pedido em várias etapas:
+A arquitetura do projeto é composta por 7 microserviços que se comunicam de forma assíncrona via **Kafka** e de forma síncrona via **OpenFeign**. Cada microserviço tem responsabilidades específicas, dividindo o fluxo de um pedido em várias etapas:
 
 <div style="width: 100%; height: 50vh; overflow: hidden; display: flex; justify-content: center; align-items: center;">
     <img src="https://github.com/devjuliomesquita/Desafio_Mais_Cond/blob/main/documents/arquitetura.png" 
@@ -54,6 +54,7 @@ A arquitetura do projeto é composta por 6 microserviços que se comunicam de fo
 4. **Order Service**: Gerencia a criação e atualização de pedidos, monitorando o status à medida que o pedido progride pelos outros serviços.
 5. **Preparation Service**: Representa a cozinha, onde os pedidos são preparados.
 6. **Delivery Service**: Lida com a fase de entrega, notificando quando o pedido for entregue ao cliente.
+7. **GATEWAY**: Lida com todas as requisições e faz o reteamento para o serviço correto.
 
 A comunicação entre os serviços, do menu, order, preparation e delivery, ocorre via **Kafka** em um fluxo assíncrono, garantindo que a entidade `Order` seja atualizada conforme cada serviço processa sua parte do pedido. Isso permite escalabilidade, desacoplamento e maior tolerância a falhas no sistema.
 
@@ -95,8 +96,11 @@ Este comando subirá um container docker do kafka e do zookeper.
  - Inicialize o discovery para que suba o eureka e os demais serviços possam se inscrever;
  - Por fim inicialize os demais serviços. A order lógica sugerida é menu, order, preparation e delivery.
 
+### Import dooc no postman
+ - Import os 3 arquivos que estão na pasta documents/postman em seu aplicativo postman eles já contém a lista de requisições.
+
 ### Acessando o swagger, eureka e H2
-#### Links do swagger | Portas escolhidas aleatoriamente
+#### Links do swagger | Portas escolhidas aleatoriamente | Apenas para consul ou realizar um novo import de doc
  - Menu: http://localhost:8050/swagger-ui/index.html#/
  - Order: http://localhost:8060/swagger-ui/index.html#/
  - Preparation: http://localhost:8070/swagger-ui/index.html#/
