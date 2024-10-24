@@ -23,6 +23,6 @@ public class SwaggerConfig {
                         .termsOfService("juliocesarmcamilo@gmail.com")
                         .contact(new Contact().name("Júlio Mesquita").email("juliocesarmcamilo@gmail.com").url("juliocesarmcamilo@gmail.com"))
                         .license(new License().name("Júlio Mesquita - Licensa MIT").url("juliocesarmcamilo@gmail.com")))
-                .servers(List.of( new Server().description("Ambiente LOCAL").url("http://localhost:8060")));
+                .servers(List.of( new Server().description("Ambiente LOCAL").url("http://localhost:8040")));
     }
 }

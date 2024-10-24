@@ -1,0 +1,49 @@
+server:
+  port: 8040
+logging:
+  level:
+    org.springframework.cloud.gateway: DEBUG
+eureka:
+  instance:
+    prefer-ip-address: true
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+      fetch-registry: true
+      register-with-eureka: true
+
+spring:
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+#          lower-case-service-id: true
+      routes:
+        - id: products-route
+          uri: lb://MENU
+          predicates:
+            - Path=/menu/products/**
+          filters:
+            - RewritePath=/products/(?<segment>.*), /products/${segment}
+
+        - id: restaurant-route
+          uri: lb://MENU
+          predicates:
+            - Path=/menu/restaurant/**
+          filters:
+            - RewritePath=/restaurant/(?<segment>.*), /restaurant/${segment}
+
+        - id: order-route
+          uri: lb://ORDER
+          predicates:
+            - Path=/order/**
+          filters:
+            - RewritePath=/order/(?<segment>.*), /order/${segment}
+
+        - id: comanda-route
+          uri: lb://PREPARATION
+          predicates:
+            - Path=/comanda/**
+          filters:
+            - RewritePath=/comanda/(?<segment>.*), /comanda/${segment}

@@ -1,0 +1,448 @@
+{
+	"info": {
+		"_postman_id": "8699e992-90ae-4c75-ad12-40f90278d90e",
+		"name": "API Preparation",
+		"description": "Está API lista comandas criadas para que a cozinha prepare. Também é possível fechar uma comanda.\n\nContact Support:\n Name: Júlio Mesquita\n Email: juliocesarmcamilo@gmail.com",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "25580747"
+	},
+	"item": [
+		{
+			"name": "comanda",
+			"item": [
+				{
+					"name": "{id}",
+					"item": [
+						{
+							"name": "close",
+							"item": [
+								{
+									"name": "Fechar uma comanda pelo id.",
+									"request": {
+										"method": "PATCH",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "*/*"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/comanda/:id/close",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"comanda",
+												":id",
+												"close"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "<string>",
+													"description": "(Required) "
+												}
+											]
+										},
+										"description": "Endpoint para busca uma comanda pelo id e finaliza a mesma."
+									},
+									"response": [
+										{
+											"name": "Successful operation",
+											"originalRequest": {
+												"method": "PATCH",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "*/*"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/comanda/:id/close",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"comanda",
+														":id",
+														"close"
+													],
+													"variable": [
+														{
+															"key": "id"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "text",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "*/*"
+												}
+											],
+											"cookie": [],
+											"body": "{}"
+										},
+										{
+											"name": "Bad Request.",
+											"originalRequest": {
+												"method": "PATCH",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "*/*"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/comanda/:id/close",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"comanda",
+														":id",
+														"close"
+													],
+													"variable": [
+														{
+															"key": "id"
+														}
+													]
+												}
+											},
+											"status": "Bad Request",
+											"code": 400,
+											"_postman_previewlanguage": "text",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "*/*"
+												}
+											],
+											"cookie": [],
+											"body": "{}"
+										},
+										{
+											"name": "Internal server error.",
+											"originalRequest": {
+												"method": "PATCH",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "*/*"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/comanda/:id/close",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"comanda",
+														":id",
+														"close"
+													],
+													"variable": [
+														{
+															"key": "id"
+														}
+													]
+												}
+											},
+											"status": "Internal Server Error",
+											"code": 500,
+											"_postman_previewlanguage": "text",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "*/*"
+												}
+											],
+											"cookie": [],
+											"body": "{}"
+										}
+									]
+								}
+							]
+						},
+						{
+							"name": "Buscar uma comanda pelo id.",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/comanda/:id",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"comanda",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "<string>",
+											"description": "(Required) "
+										}
+									]
+								},
+								"description": "Endpoint para busca uma comanda pelo id e retornar suas caracteríticas."
+							},
+							"response": [
+								{
+									"name": "Successful operation",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/comanda/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"comanda",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"id\": \"<string>\",\n  \"order\": {\n    \"id\": \"<string>\",\n    \"tableId\": \"<string>\",\n    \"products\": [\n      {\n        \"id\": \"<string>\",\n        \"quantity\": \"<integer>\"\n      },\n      {\n        \"id\": \"<string>\",\n        \"quantity\": \"<integer>\"\n      }\n    ],\n    \"createdAt\": \"<dateTime>\",\n    \"updatedAt\": \"<dateTime>\",\n    \"status\": \"<string>\"\n  },\n  \"closed\": \"<boolean>\",\n  \"createdAt\": \"<dateTime>\",\n  \"updatedAt\": \"<dateTime>\"\n}"
+								},
+								{
+									"name": "Bad Request.",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/comanda/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"comanda",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id"
+												}
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"id\": \"<string>\",\n  \"order\": {\n    \"id\": \"<string>\",\n    \"tableId\": \"<string>\",\n    \"products\": [\n      {\n        \"id\": \"<string>\",\n        \"quantity\": \"<integer>\"\n      },\n      {\n        \"id\": \"<string>\",\n        \"quantity\": \"<integer>\"\n      }\n    ],\n    \"createdAt\": \"<dateTime>\",\n    \"updatedAt\": \"<dateTime>\",\n    \"status\": \"<string>\"\n  },\n  \"closed\": \"<boolean>\",\n  \"createdAt\": \"<dateTime>\",\n  \"updatedAt\": \"<dateTime>\"\n}"
+								},
+								{
+									"name": "Internal server error.",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/comanda/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"comanda",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id"
+												}
+											]
+										}
+									},
+									"status": "Internal Server Error",
+									"code": 500,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"id\": \"<string>\",\n  \"order\": {\n    \"id\": \"<string>\",\n    \"tableId\": \"<string>\",\n    \"products\": [\n      {\n        \"id\": \"<string>\",\n        \"quantity\": \"<integer>\"\n      },\n      {\n        \"id\": \"<string>\",\n        \"quantity\": \"<integer>\"\n      }\n    ],\n    \"createdAt\": \"<dateTime>\",\n    \"updatedAt\": \"<dateTime>\",\n    \"status\": \"<string>\"\n  },\n  \"closed\": \"<boolean>\",\n  \"createdAt\": \"<dateTime>\",\n  \"updatedAt\": \"<dateTime>\"\n}"
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "Lista todas as comandas que chegaram.",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/comanda",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"comanda"
+							]
+						},
+						"description": "Endpoint lista todos as comandas criadas."
+					},
+					"response": [
+						{
+							"name": "Successful operation",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/comanda",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"comanda"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"id\": \"<string>\",\n  \"closed\": \"<boolean>\",\n  \"createdAt\": \"<dateTime>\"\n}"
+						},
+						{
+							"name": "Bad Request.",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/comanda",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"comanda"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "[\n  {\n    \"id\": \"<string>\",\n    \"closed\": \"<boolean>\",\n    \"createdAt\": \"<dateTime>\"\n  },\n  {\n    \"id\": \"<string>\",\n    \"closed\": \"<boolean>\",\n    \"createdAt\": \"<dateTime>\"\n  }\n]"
+						},
+						{
+							"name": "Internal server error.",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/comanda",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"comanda"
+									]
+								}
+							},
+							"status": "Internal Server Error",
+							"code": 500,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "[\n  {\n    \"id\": \"<string>\",\n    \"closed\": \"<boolean>\",\n    \"createdAt\": \"<dateTime>\"\n  },\n  {\n    \"id\": \"<string>\",\n    \"closed\": \"<boolean>\",\n    \"createdAt\": \"<dateTime>\"\n  }\n]"
+						}
+					]
+				}
+			]
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "http://localhost:8040"
+		}
+	]
+}

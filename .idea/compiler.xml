@@ -8,8 +8,9 @@
         <outputRelativeToContentRoot value="true" />
         <module name="server" />
         <module name="delivery" />
-        <module name="menu" />
         <module name="discovery" />
+        <module name="menu" />
+        <module name="gateway" />
         <module name="order" />
         <module name="preparation" />
       </profile>
@@ -19,6 +20,7 @@
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="delivery" options="-parameters" />
       <module name="discovery" options="-parameters" />
+      <module name="gateway" options="-parameters" />
       <module name="menu" options="-parameters" />
       <module name="order" options="-parameters" />
       <module name="preparation" options="-parameters" />

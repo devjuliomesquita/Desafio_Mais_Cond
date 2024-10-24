@@ -1,0 +1,703 @@
+{
+	"info": {
+		"_postman_id": "5a8e8fcc-c6c9-48ef-861b-4aa0ad1218f9",
+		"name": "API Menu",
+		"description": "Está API lista mesas disponíveis e produtos par consumo de um restaurante.\n\nContact Support:\n Name: Júlio Mesquita\n Email: juliocesarmcamilo@gmail.com",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "25580747"
+	},
+	"item": [
+		{
+			"name": "menu",
+			"item": [
+				{
+					"name": "restaurant",
+					"item": [
+						{
+							"name": "{id}",
+							"item": [
+								{
+									"name": "Buscar uma mesa pelo id.",
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/menu/restaurant/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"menu",
+												"restaurant",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "<string>",
+													"description": "(Required) "
+												}
+											]
+										},
+										"description": "Endpoint para busca uma mesa e seus atributos pelo id."
+									},
+									"response": [
+										{
+											"name": "Successful operation",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "application/json"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/menu/restaurant/:id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"menu",
+														"restaurant",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"id\": \"<string>\",\n  \"reserved\": \"<boolean>\",\n  \"products\": [\n    {\n      \"id\": \"<string>\",\n      \"quantity\": \"<integer>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"quantity\": \"<integer>\"\n    }\n  ]\n}"
+										},
+										{
+											"name": "Bad Request.",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "application/json"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/menu/restaurant/:id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"menu",
+														"restaurant",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id"
+														}
+													]
+												}
+											},
+											"status": "Bad Request",
+											"code": 400,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"id\": \"<string>\",\n  \"reserved\": \"<boolean>\",\n  \"products\": [\n    {\n      \"id\": \"<string>\",\n      \"quantity\": \"<integer>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"quantity\": \"<integer>\"\n    }\n  ]\n}"
+										},
+										{
+											"name": "Internal server error.",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "application/json"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/menu/restaurant/:id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"menu",
+														"restaurant",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id"
+														}
+													]
+												}
+											},
+											"status": "Internal Server Error",
+											"code": 500,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"id\": \"<string>\",\n  \"reserved\": \"<boolean>\",\n  \"products\": [\n    {\n      \"id\": \"<string>\",\n      \"quantity\": \"<integer>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"quantity\": \"<integer>\"\n    }\n  ]\n}"
+										}
+									]
+								}
+							]
+						},
+						{
+							"name": "Lista todas as mesas e suas disponibilidades.",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/menu/restaurant",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"menu",
+										"restaurant"
+									]
+								},
+								"description": "Endpoint lista todas as mesas do restaturante e suas disponibilidades."
+							},
+							"response": [
+								{
+									"name": "Successful operation",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/menu/restaurant",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"menu",
+												"restaurant"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"id\": \"<string>\",\n  \"reserved\": \"<boolean>\"\n}"
+								},
+								{
+									"name": "Bad Request.",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/menu/restaurant",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"menu",
+												"restaurant"
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "[\n  {\n    \"id\": \"<string>\",\n    \"reserved\": \"<boolean>\"\n  },\n  {\n    \"id\": \"<string>\",\n    \"reserved\": \"<boolean>\"\n  }\n]"
+								},
+								{
+									"name": "Internal server error.",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/menu/restaurant",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"menu",
+												"restaurant"
+											]
+										}
+									},
+									"status": "Internal Server Error",
+									"code": 500,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "[\n  {\n    \"id\": \"<string>\",\n    \"reserved\": \"<boolean>\"\n  },\n  {\n    \"id\": \"<string>\",\n    \"reserved\": \"<boolean>\"\n  }\n]"
+								}
+							]
+						},
+						{
+							"name": "Adiciona uma lista de produtos a mesa.",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"tableId\": \"<string>\",\n  \"products\": [\n    {\n      \"id\": \"<string>\",\n      \"quantity\": \"<integer>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"quantity\": \"<integer>\"\n    }\n  ]\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/menu/restaurant",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"menu",
+										"restaurant"
+									]
+								},
+								"description": "Endpoint para adicionar um novo produto ou uma lista de novos produtos ao consumo da mesa."
+							},
+							"response": [
+								{
+									"name": "Successful operation",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"tableId\": \"<string>\",\n  \"products\": [\n    {\n      \"id\": \"<string>\",\n      \"quantity\": \"<integer>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"quantity\": \"<integer>\"\n    }\n  ]\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/menu/restaurant",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"menu",
+												"restaurant"
+											]
+										}
+									},
+									"status": "No Content",
+									"code": 204,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{}"
+								},
+								{
+									"name": "Bad Request.",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"tableId\": \"<string>\",\n  \"products\": [\n    {\n      \"id\": \"<string>\",\n      \"quantity\": \"<integer>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"quantity\": \"<integer>\"\n    }\n  ]\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/menu/restaurant",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"menu",
+												"restaurant"
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{}"
+								},
+								{
+									"name": "Internal server error.",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"tableId\": \"<string>\",\n  \"products\": [\n    {\n      \"id\": \"<string>\",\n      \"quantity\": \"<integer>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"quantity\": \"<integer>\"\n    }\n  ]\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/menu/restaurant",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"menu",
+												"restaurant"
+											]
+										}
+									},
+									"status": "Internal Server Error",
+									"code": 500,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{}"
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "products",
+					"item": [
+						{
+							"name": "Lista todos os Produtos do cardápio.",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/menu/products?search=&currentPage=0&itemsPerPage=10&sort=name&direction=asc",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"menu",
+										"products"
+									],
+									"query": [
+										{
+											"key": "search",
+											"value": ""
+										},
+										{
+											"key": "currentPage",
+											"value": "0"
+										},
+										{
+											"key": "itemsPerPage",
+											"value": "10"
+										},
+										{
+											"key": "sort",
+											"value": "name"
+										},
+										{
+											"key": "direction",
+											"value": "asc"
+										}
+									]
+								},
+								"description": "Endpoint lista todos os endpoints do cardápio com filtros por nome, descrição e categoria."
+							},
+							"response": [
+								{
+									"name": "Successful operation",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/menu/products?search=&currentPage=0&itemsPerPage=10&sort=name&direction=asc",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"menu",
+												"products"
+											],
+											"query": [
+												{
+													"key": "search",
+													"value": ""
+												},
+												{
+													"key": "currentPage",
+													"value": "0"
+												},
+												{
+													"key": "itemsPerPage",
+													"value": "10"
+												},
+												{
+													"key": "sort",
+													"value": "name"
+												},
+												{
+													"key": "direction",
+													"value": "asc"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"category\": \"<string>\",\n  \"price\": \"<number>\"\n}"
+								},
+								{
+									"name": "Bad Request.",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/menu/products?search=&currentPage=0&itemsPerPage=10&sort=name&direction=asc",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"menu",
+												"products"
+											],
+											"query": [
+												{
+													"key": "search",
+													"value": ""
+												},
+												{
+													"key": "currentPage",
+													"value": "0"
+												},
+												{
+													"key": "itemsPerPage",
+													"value": "10"
+												},
+												{
+													"key": "sort",
+													"value": "name"
+												},
+												{
+													"key": "direction",
+													"value": "asc"
+												}
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"items\": [\n    {\n      \"id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"description\": \"<string>\",\n      \"category\": \"<string>\",\n      \"price\": \"<number>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"description\": \"<string>\",\n      \"category\": \"<string>\",\n      \"price\": \"<number>\"\n    }\n  ],\n  \"currentPage\": \"<integer>\",\n  \"itemsPerPage\": \"<integer>\",\n  \"totalItems\": \"<long>\",\n  \"totalPages\": \"<integer>\"\n}"
+								},
+								{
+									"name": "Internal server error.",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/menu/products?search=&currentPage=0&itemsPerPage=10&sort=name&direction=asc",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"menu",
+												"products"
+											],
+											"query": [
+												{
+													"key": "search",
+													"value": ""
+												},
+												{
+													"key": "currentPage",
+													"value": "0"
+												},
+												{
+													"key": "itemsPerPage",
+													"value": "10"
+												},
+												{
+													"key": "sort",
+													"value": "name"
+												},
+												{
+													"key": "direction",
+													"value": "asc"
+												}
+											]
+										}
+									},
+									"status": "Internal Server Error",
+									"code": 500,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"items\": [\n    {\n      \"id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"description\": \"<string>\",\n      \"category\": \"<string>\",\n      \"price\": \"<number>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"description\": \"<string>\",\n      \"category\": \"<string>\",\n      \"price\": \"<number>\"\n    }\n  ],\n  \"currentPage\": \"<integer>\",\n  \"itemsPerPage\": \"<integer>\",\n  \"totalItems\": \"<long>\",\n  \"totalPages\": \"<integer>\"\n}"
+								}
+							]
+						}
+					]
+				}
+			]
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "http://localhost:8040"
+		}
+	]
+}

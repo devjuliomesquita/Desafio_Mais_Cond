@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@RequestMapping(value = "/restaurant")
+@RequestMapping(value = "/menu/restaurant")
 @Tag(name = "Restaurant")
 public interface RestaurantAPI {
     @Operation(

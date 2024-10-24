@@ -32,3 +32,11 @@ spring:
 application:
   config:
     order-url: http://localhost:8060/order
+eureka:
+  instance:
+    prefer-ip-address: true
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+      fetch-registry: true
+      register-with-eureka: true
